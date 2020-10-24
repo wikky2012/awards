@@ -10,6 +10,9 @@ django = "==3.1.2"
 python-decouple = "*"
 django-bootstrap3 = "*"
 psycopg2 = "*"
+djangorestframework = "*"
+django-tinymce = "*"
+django-registration = "*"
 
 [requires]
 python_version = "3.8"

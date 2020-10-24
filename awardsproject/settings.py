@@ -39,6 +39,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'awardsapp',
     'bootstrap3',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -46,6 +47,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'tinymce',
+    'rest_framework',
+    'rest_framework.authtoken',
+  
 ]
 
 MIDDLEWARE = [

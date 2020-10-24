@@ -1,37 +1,27 @@
-from django.conf.urls import url
-from . import views
-from django.conf.urls.static import static
-from django.conf import settings
+"""instagramproject URL Configuration
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/1.11/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  url(r'^$', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  url(r'^$', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.conf.urls import url, include
+    2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
+"""
+from django.conf.urls import url, include
+from django.contrib import admin
+from django.contrib.auth import views
+from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
-
-    url(r'^$', views.home_projects, name='homePage'),
-    # url(r'^search/', views.search_users, name='search_users'),
-    url(r'^search/', views.search_projects, name='search_projects'),
-    url(r'^image(\d+)', views.project, name='project'),
-    url(r'^users/', views.user_list, name='user_list'),
-    url(r'^new/image$', views.new_image, name='new_image'),
-    url(r'^new/project$', views.new_project, name='new_project'),
-    url(r'^edit/profile$', views.edit_profile, name='edit_profile'),
-    url(r'^profile/(?P<username>[0-9]+)$',
-        views.individual_profile_page, name='individual_profile_page'),
-    url(r'^ajax/newsletter/$', views.newsletter, name='newsletter'),
-    url(r'^api/project/$', views.ProjectList.as_view()),
-    url(r'api/project/project-id/(?P<pk>[0-9]+)/$',
-        views.ProjectDescription.as_view()),
-    url(r'^api/profile/$', views.ProfileList.as_view()),
-    url(r'api/profile/profile-id/(?P<pk>[0-9]+)/$',
-        views.ProfileDescription.as_view()),
-    # ex: /
-    url(r'^$', views.review_list, name='review_list'),
-    # ex: /review/5/
-    url(r'^review/(?P<review_id>[0-9]+)/$',
-        views.review_detail, name='review_detail'),
-    # ex: /project/
-    url(r'^project$', views.project_list, name='project_list'),
+    url(r'^admin/', admin.site.urls),
+    url(r'', include('awardsapp.urls')),
+    url(r'^accounts/', include('registration.backends.simple.urls')),
+    url(r'^logout/$', views.logout, {"next_page": '/'}),
+    url(r'^api-token-auth/', obtain_auth_token),
 ]
-
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL,
-                          document_root=settings.MEDIA_ROOT)
