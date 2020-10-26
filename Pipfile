@@ -13,6 +13,7 @@ psycopg2 = "*"
 djangorestframework = "*"
 django-tinymce = "*"
 django-registration = "*"
+numpy = "*"
 
 [requires]
 python_version = "3.8"
