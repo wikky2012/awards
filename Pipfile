@@ -6,13 +6,13 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-django = "*"
 python-decouple = "*"
 django-bootstrap3 = "*"
 psycopg2 = "*"
 django-tinymce = "*"
-django-registration = "*"
+django-registration = "==2.4.1"
 numpy = "*"
+django = "==2.2"
 djangorestframework = "*"
 
 [requires]
