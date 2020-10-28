@@ -1,17 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri:wght@700&display=swap');
 a {
   color: #003366;
 }
 
 body {
   background-color: white;
+  font-family: 'El Messiri', sans-serif;
 }
 
-#victor {
-  font-family: 'Dosis', sans-serif;
+#wikky {
+  font-family: 'El Messiri', sans-serif;
   font-size: 30px;
 }
 
 li {
+  font-family: 'El Messiri', sans-serif;
   display: inline;
 }
 
@@ -20,6 +23,7 @@ li a {
 }
 
 #footer1 li {
+  font-family: 'El Messiri', sans-serif;
   padding: 10px;
   font-size: 10px;
 }
@@ -31,6 +35,7 @@ li a {
 
 #jumbo{
 height:200px !important;
+font-family: 'El Messiri', sans-serif;
 }
 
 .w-33 {

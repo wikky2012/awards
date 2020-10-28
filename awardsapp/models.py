@@ -21,8 +21,7 @@ class tags(models.Model):
 
     def delete_tags(self):
         self.delete()
-
-
+        
 class Location(models.Model):
     name = models.CharField(max_length=30)
 
@@ -98,11 +97,10 @@ class Profile(models.Model):
     project=models.ForeignKey(Project, null=True, on_delete=models.CASCADE)
     contact=models.IntegerField(default=0)
 
-    def create_user_profile(self,sender, instance, created, **kwargs):
+    def create_user_profile(self, sender, instance, created, **kwargs):
         if created:
             Profile.objects.create(user=instance)
-
-    post_save.connect(create_user_profile, sender=User)
+            post_save.connect(create_user_profile, sender=User)
 
 
     def save_profile(self):
